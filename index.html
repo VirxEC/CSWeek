@@ -21,6 +21,7 @@
   <button onclick="roulette()"> this is a test button! put in an input value!</button>
   <input id="input" type ="number">
   <script>
+    window.onload = function() {
      function roulette() {
   var luckynumber = Math.Floor(Math.Random()*10);
   var num = document.getElementById("input").value;
