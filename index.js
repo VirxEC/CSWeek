@@ -27,3 +27,6 @@ console.error = (...args) => args.forEach(e => {
   }
 });
 window.onerror=(e,s,l,c)=>console.error(`${e} at: ${s} : ${l}:${c}`);
+
+throw new Error("Thrown error");
+console.error("Console error");
