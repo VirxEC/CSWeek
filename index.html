@@ -21,15 +21,7 @@
   <button onclick="roulette()"> this is a test button! put in an input value!</button>
   <input id="input" type ="number">
     <script>
-     function roulette() {
-  var luckynumber = Math.Floor(Math.Random()*10);
-  var num = document.getElementById("input").value;
-  if(num == luckynumber) {
-    document.getElementById("sitetest").innerHTML = "Wow, epic!";
-  } else {
-      document.getElementById("sitetest").innerHTML = "Wow so not epic...";
-  }
-     }
+     function roulette(){ document.getElementById("sitetest").innerHTML = "Wow";   }
   </script>
 </body>
 </html>
