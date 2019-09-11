@@ -28,5 +28,8 @@ console.error = (...args) => args.forEach(e => {
 });
 window.onerror=(e,s,l,c)=>console.error(`${e} at: ${s} : ${l}:${c}`);
 
-throw new Error("Thrown error");
-console.error("Console error");
+document.getElementById("sitetest").addEventListener("click", function() {
+  var test = confirm("Don't tell anyone about this secret,\nOK?");
+  if (test) alert("Thanks!");
+  else window.location.replace("https://www.w3schools.com/");
+});
