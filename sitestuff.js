@@ -3,7 +3,11 @@ function roulette(var num)
 {
  if(num == luckynumber)
  {
-   return "wow, epic!";
+   document.getElementById("sitetest").innerHTML = "Wow, epic!";
+ }
+ else
+ {
+     document.getElementById("sitetest").innerHTML = "Wow so not epic...";
  }
 
 }
