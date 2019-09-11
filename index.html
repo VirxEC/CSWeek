@@ -20,8 +20,7 @@
   <h4 id="sitetest"> This is a test, please don't hurt it!</h4>
   <button onclick="roulette()"> this is a test button! put in an input value!</button>
   <input id="input" type ="number">
-  <script>
-    window.onload = function() {
+    <script>
      function roulette() {
   var luckynumber = Math.Floor(Math.Random()*10);
   var num = document.getElementById("input").value;
@@ -30,6 +29,7 @@
   } else {
       document.getElementById("sitetest").innerHTML = "Wow so not epic...";
   }
+     }
   </script>
 </body>
 </html>
