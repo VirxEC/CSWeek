@@ -60,7 +60,7 @@
     } else UwU = 0;
     
     document.getElementById("roulettebruh").addEventListener("click", function() {
-      var rangen = Math.floor(Math.random() * 1001), num = document.getElementById("input").value;
+      var rangen = Math.floor(Math.random() * 1001), num = parseInt(document.getElementById("input").value);
       if(num == rangen || (bonus == true && (1000 - num) == rangen)){
         OwO++;
         document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
