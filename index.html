@@ -69,10 +69,15 @@
         document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
       }
       
+      Number.prototype.between = function(a, b, inclusive) {
+        var min = Math.min(a, b), max = Math.max(a, b);
+        return inclusive ? this >= min && this <= max : this > min && this < max;
+      }
+      
       var onum = document.getElementById("number");
       onum.textContent = rangen;
-      if (num-10 <= rangen && rangen <= num+10) onum.style.color = "rgb(0, 255, 0)";
-      else if (num-100 <= rangen && rangen <= num+100) onum.style.color = "rgb(255, 255, 0)";
+      if (rangen.between(num-10, num+10, true)) onum.style.color = "rgb(0, 255, 0)";
+      else if (rangen.between(num-100, num+100, true)) onum.style.color = "rgb(255, 255, 0)";
       else onum.style.color = "rgb(255, 0, 0)";
     });
     
