@@ -71,8 +71,8 @@
       
       var onum = document.getElementById("number");
       onum.textContent = rangen;
-      if (num-10 <= rangen <= num+10) onum.style.color = "rgb(0, 255, 0)";
-      else if (num-100 <= rangen <= num+100) onum.style.color = "rgb(255, 255, 0)";
+      if (num-10 <= rangen && rangen <= num+10) onum.style.color = "rgb(0, 255, 0)";
+      else if (num-100 <= rangen && rangen <= num+100) onum.style.color = "rgb(255, 255, 0)";
       else onum.style.color = "rgb(255, 0, 0)";
     });
     
