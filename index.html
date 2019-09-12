@@ -49,7 +49,7 @@
   <button id="bonus">Get a bonus for 1 OwO</button>
     <script>
       var OwO = localStorge.getItem("OwO"), bonus = (localStorage.getItem("bonus") == 'true');
-      if (OwO != undefined) {
+      if (OwO != null) {
         OwO = parseInt(OwO);
         document.getElementById("OwO").textContent = `OwO (${OwO} times)`;
       }
