@@ -52,7 +52,7 @@
       if (OwO != null) {
         OwO = parseInt(OwO);
         document.getElementById("OwO").textContent = `OwO (${OwO} times)`;
-      }
+      } else OwO = 0;
       var num = document.getElementById("input").value, timesBad = 0;
       document.getElementById("roulettebruh").addEventListener("click", function() {
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
