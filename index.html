@@ -59,16 +59,15 @@
   <button onclick="roulettebruh()"> this is a test button! put in an input value!</button>
   <input id="input" type ="number">
     <script>
-     function roulettebruh(){
-       var rangen = Math.Floor(Math.Random() * 2);
-       var num = document.getElementById("input").value;
-       if(num == rangen){
-       document.getElementById("sitetest").innerHTML = "Wow";
-       }
-       else if (num /= rangen){
-         document.getElementById("sitetest").innerHTML = "OOF";
-       }
-     }
+      function roulettebruh(){
+        var rangen = Math.floor(Math.random() * 2); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
+        var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest");
+        if(num == rangen){
+          sitetest.innerHTML = "Wow";
+        } else if (num /= rangen){
+          sitetest.innerHTML = "OOF";
+        }
+      }
   </script>
 </body>
 </html>
