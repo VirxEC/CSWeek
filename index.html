@@ -4,6 +4,23 @@
   <title>CSWeek</title>
   <link rel="icon" href="logo.png">
   <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <p class="console"></p>
+  <nav id="nav">
+    <a href="">Home</a>
+    <a href="/CalcPlus/SiteDiscord/">Contact Discord</a>
+  </nav>
+  <br>
+  <h1>The CSWeek Webpage!</h1>
+  <h2>By South Windsor High School CS Club</h2>
+  <h3>Currently under construction - please check back soon!</h3>
+  <h4 id="sitetest">This is a test, please don't hurt it!</h4>
+  <p id="OwO"></p>
+  <p id="UwU"></p>
+  <button id="roulettebruh">Put in an input value from 0-1000, then click me!</button>
+  <input id="input" type="number"><br>
+  <button id="bonus">Get a bonus for 1 OwO</button>
   <script>
     window.onload = function() {
       var c = document.querySelector(".console");
@@ -29,27 +46,7 @@
         if (test) alert("Thanks!");
         else window.location.replace("https://www.w3schools.com/");
       });
-    };
-  </script>
-</head>
-<body>
-  <p class="console"></p>
-  <nav id="nav">
-    <a href="">Home</a>
-    <a href="/CalcPlus/SiteDiscord/">Contact Discord</a>
-  </nav>
-  <br>
-  <h1>The CSWeek Webpage!</h1>
-  <h2>By South Windsor High School CS Club</h2>
-  <h3>Currently under construction - please check back soon!</h3>
-  <h4 id="sitetest">This is a test, please don't hurt it!</h4>
-  <p id="OwO"></p>
-  <p id="UwU"></p>
-  <button id="roulettebruh">Put in an input value from 0-1000, then click me!</button>
-  <input id="input" type="number"><br>
-  <button id="bonus">Get a bonus for 1 OwO</button>
-  <script>
-    window.onload = function() {
+      
       console.log("This works...");
       var OwO = localStorge.getItem("OwO"), bonus = (localStorage.getItem("bonus") == 'true');
       if (OwO != null) {
