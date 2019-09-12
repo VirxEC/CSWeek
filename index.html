@@ -50,11 +50,11 @@
     var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true'), num = document.getElementById("input").value;
     if (OwO != null) {
       OwO = parseInt(OwO);
-      document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
+      if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
     } else OwO = 0;
     if (UwU != null) {
       UwU = parseInt(UwU);
-      document.getElementById("UwU").testContent = "UwU ("+UwU+" times)";
+      if (UwU != 0) document.getElementById("UwU").testContent = "UwU ("+UwU+" times)";
     } else UwU = 0;
     
     document.getElementById("roulettebruh").addEventListener("click", function() {
