@@ -43,20 +43,29 @@
   <h2>By South Windsor High School CS Club</h2>
   <h3>Currently under construction - please check back soon!</h3>
   <h4 id="sitetest"> This is a test, please don't hurt it!</h4>
-  <span id="OwO"></span>
-  <span id="UwU"></span>
+  <span id="OwO"></span><span id="UwU"></span><br>
   <button id="roulettebruh">This is a test button! Put in an input value from 0-1000</button>
+  <button id="bonus">Get a bonus for 1 OwO</button>
   <input id="input" type="number">
     <script>
-      var num = document.getElementById("input").value, timesGood = 0, timesBad = 0;
+      var num = document.getElementById("input").value, timesGood = 0, timesBad = 0, bonus = false;
       document.getElementById("roulettebruh").addEventListener("click", function() {
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
-        if(num == rangen){
+        var num2 = 1000 - num;
+        if(num == rangen || (bonus == true && num2 == rangen)){
           timesGood++;
-          document.getElementById("OwO").innerHTML = `OwO (${timesGood} times)`;
+          document.getElementById("OwO").textContent = `OwO (${timesGood} times)`;
         } else { // != is does not equal, /= is like +=. Also, == is one statement with only 1 other outcome, so you can just use else.
           timesBad++;
-          document.getElementById("UwU").innerHTML = `UwU (${timesBad} times)`;
+          document.getElementById("UwU").textContent = `UwU (${timesBad} times)`;
+        }
+      });
+      document.getElementById("bonus").addEventListener("click", function() {
+        if (timesGood >= 1) {
+          timesGood--;
+          if (timesGood == 0) document.getElementById("OwO").textContent = "";
+          else document.getElementById("OwO").textContent = `OwO (${timesGood} times)`;
+          bonus = true;
         }
       });
   </script>
