@@ -23,8 +23,9 @@
           c.appendChild(s);
       });
       window.onerror=(e,s,l,c)=>console.error(`${e} at: ${s} : ${l}:${c}`);
-
-      document.getElementById("sitetest").addEventListener("click", function() {
+      
+      var sitetest = document.getElementById("sitetest")
+      sitetest.addEventListener("click", function() {
         var test = confirm("Don't tell anyone about this secret,\nOK?");
         if (test) alert("Thanks!");
         else window.location.replace("https://www.w3schools.com/");
@@ -46,7 +47,7 @@
   <button id="roulettebruh">This is a test button! Put in an input value from 0-1000</button>
   <input id="input" type ="number">
     <script>
-      var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest"), timesGood = 0, timesBad = 0;
+      var num = document.getElementById("input").value, timesGood = 0, timesBad = 0;
       document.getElementById("roulettebruh").addEventListener("click", function() {
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
         if(num == rangen){
