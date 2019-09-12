@@ -22,6 +22,7 @@
   <input id="input" type ="number">
     <script>
      function roulettebruh(){
+       document.getElementById("sitetest").innerHTML = "input recieved?";
        var rangen = Math.Floor(Math.Random() * 2);
        var num = document.getElementById("input").value;
        if(num == rangen){
