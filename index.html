@@ -48,11 +48,13 @@
     <script>
       function roulettebruh(){
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
-        var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest");
+        var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest"), timesGood = 0, timesBad = 0;
         if(num == rangen){
-          sitetest.innerHTML = "OwO";
-        } else if (num /= rangen){
-          sitetest.innerHTML = "UwU";
+          timesGood++;
+          sitetest.innerHTML = `OwO (${timesGood} times)`;
+        } else if (num /= rangen) {
+          timesBad++;
+          sitetest.innerHTML = `UwU (${timesBad} times)`;
         }
       }
   </script>
