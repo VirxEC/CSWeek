@@ -86,11 +86,11 @@
       window.location.reload();
     });
     
-    window.onbeforeunload = function(){
-      localStorage.setItem("OwO", OwO);
-      localStorage.setItem("UwU", UwU);
-      localStorage.setItem("bonus", bonus);
-    }
+    window.addEventListener("beforeunload", function(){
+      localStorage.setItem("OwO", OwO.toString());
+      localStorage.setItem("UwU", UwU.toString());
+      localStorage.setItem("bonus", bonus.toString);
+    });
   </script>
 </body>
 </html>
