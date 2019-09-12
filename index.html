@@ -21,6 +21,7 @@
   <button id="roulettebruh">Put in an input value from 0-1000, then click me!</button>
   <input id="input" type="number"><br>
   <button id="bonus">Get a bonus for 1 OwO</button>
+  <button id="reset">Reset everything</button>
   <script>
     var c = document.querySelector(".console");
     console.log = (...args) => args.forEach(m => {
@@ -46,33 +47,47 @@
       else window.location.replace("https://www.w3schools.com/");
     });
 
-    var OwO = localStorage.getItem("OwO"), bonus = (localStorage.getItem("bonus") == 'true');
+    var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true'), num = document.getElementById("input").value;
     if (OwO != null) {
       OwO = parseInt(OwO);
       document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
     } else OwO = 0;
-    var num = document.getElementById("input").value, timesBad = 0;
+    if (UwU != null) {
+      UwU = parseInt(UwU);
+      document.getElementById("UwU").testContent = "UwU ("+UwU+" times)";
+    } else UwU = 0;
+    
     document.getElementById("roulettebruh").addEventListener("click", function() {
-      var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
+      var rangen = Math.floor(Math.random() * 1001);
       if(num == rangen || (bonus == true && (1000 - num) == rangen)){
         OwO++;
         document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
-      } else { // != is does not equal, /= is like +=. Also, == is one statement with only 1 other outcome, so you can just use else.
-        timesBad++;
-        document.getElementById("UwU").textContent = "UwU ("+timesBad+" times)";
+      } else {
+        UwU++;
+        document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
       }
     });
+    
     document.getElementById("bonus").addEventListener("click", function() {
       if (OwO >= 1 && bonus == false) {
         OwO--;
-        if (timesGood == 0) document.getElementById("OwO").textContent = "";
+        if (OwO == 0) document.getElementById("OwO").textContent = "";
         else document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
         bonus = true;
       } else if (bonus) alert("You already have this bonus!");
       else alert("Not enough OwO's!");
     });
+    
+    document.getElementById("reset").addEventListener("click", function() {
+      localStorage.setItem("OwO", 0);
+      localStorage.setItem("UwU", 0);
+      localStorage.setItem("bonus", false);
+      window.location.reload();
+    });
+    
     window.onbeforeunload = function(){
       localStorage.setItem("OwO", OwO);
+      localStorage.setItem("UwU", UwU);
       localStorage.setItem("bonus", bonus);
     }
   </script>
