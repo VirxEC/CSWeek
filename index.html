@@ -52,7 +52,7 @@
         if(num == rangen){
           timesGood++;
           sitetest.innerHTML = `OwO (${timesGood} times)`;
-        } else if (num /= rangen) {
+        } else { // != is does not equal, /= is like +=. Also, == is one statement with only 1 other outcome, so you can just use else.
           timesBad++;
           sitetest.innerHTML = `UwU (${timesBad} times)`;
         }
