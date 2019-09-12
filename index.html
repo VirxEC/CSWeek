@@ -43,12 +43,12 @@
   <h2>By South Windsor High School CS Club</h2>
   <h3>Currently under construction - please check back soon!</h3>
   <h4 id="sitetest"> This is a test, please don't hurt it!</h4>
-  <button onclick="roulettebruh()">This is a test button! Put in an input value from 0-1000</button>
+  <button id="roulettebruh">This is a test button! Put in an input value from 0-1000</button>
   <input id="input" type ="number">
     <script>
-      function roulettebruh(){
+      var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest"), timesGood = 0, timesBad = 0;
+      document.getElementById("roulettebruh").addEventListener("click", function() {
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
-        var num = document.getElementById("input").value, sitetest = document.getElementById("sitetest"), timesGood = 0, timesBad = 0;
         if(num == rangen){
           timesGood++;
           sitetest.innerHTML = `OwO (${timesGood} times)`;
@@ -56,7 +56,7 @@
           timesBad++;
           sitetest.innerHTML = `UwU (${timesBad} times)`;
         }
-      }
+      });
   </script>
 </body>
 </html>
