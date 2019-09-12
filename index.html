@@ -62,6 +62,7 @@
     document.getElementById("roulettebruh").addEventListener("click", function() {
       var rangen = Math.floor(Math.random() * 1001), num = parseInt(document.getElementById("input").value);
       if(num == rangen || (bonus == true && (1000 - num) == rangen)){
+        console.info("Got it.");
         OwO++;
         document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
       } else {
@@ -92,9 +93,9 @@
     });
     
     document.getElementById("reset").addEventListener("click", function() {
-      localStorage.setItem("OwO", 0);
-      localStorage.setItem("UwU", 0);
-      localStorage.setItem("bonus", false);
+      localStorage.setItem("OwO", "0");
+      localStorage.setItem("UwU", "0");
+      localStorage.setItem("bonus", "false");
       window.location.reload();
     });
     
