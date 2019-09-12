@@ -19,7 +19,8 @@
   <p id="OwO"></p>
   <p id="UwU"></p>
   <button id="roulettebruh">Put in an input value from 0-1000, then click me!</button>
-  <input id="input" type="number" width="20px"><br>
+  <input id="input" type="number" width="20px">
+  <span id="number"<br>
   <button id="bonus">Get a bonus for 1 OwO</button>
   <br><br>
   <button id="reset">Reset everything</button>
@@ -65,8 +66,13 @@
         document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
       } else {
         UwU++;
-        document.getElementById("UwU").textContent = "UwU ("+UwU+" times)"+rangen;
+        document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
       }
+      var onum = document.getElementById("number");
+      onum.textContent = rangen;
+      if (num+10 >= rangen >= num-10) onum.style.color = "rgb(0, 255, 0)";
+      else if (num+100 >= rangen >= num-100) onum.sytle.color = "rgb(255, 255, 0)";
+      else onum.style.color = "rgb(255, 0 0)";
     });
     
     document.getElementById("bonus").addEventListener("click", function() {
