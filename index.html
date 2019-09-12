@@ -49,7 +49,7 @@
       else window.location.replace("https://www.w3schools.com/");
     });
 
-    var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true'), num = document.getElementById("input").value;
+    var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true');
     if (OwO != null) {
       OwO = parseInt(OwO);
       if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
@@ -60,7 +60,7 @@
     } else UwU = 0;
     
     document.getElementById("roulettebruh").addEventListener("click", function() {
-      var rangen = Math.floor(Math.random() * 1001);
+      var rangen = Math.floor(Math.random() * 1001), num = document.getElementById("input").value;
       if(num == rangen || (bonus == true && (1000 - num) == rangen)){
         OwO++;
         document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
