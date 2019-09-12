@@ -21,7 +21,16 @@
   <button onclick="roulettebruh()"> this is a test button! put in an input value!</button>
   <input id="input" type ="number">
     <script>
-     function roulettebruh(){ document.getElementById("sitetest").innerHTML = "Wow";   }
+     function roulettebruh(){
+       var rangen = Math.Floor(Math.Random() * 2);
+       var num = document.getElementById("input").value;
+       if(num == rangen){
+       document.getElementById("sitetest").innerHTML = "Wow";
+       }
+       else{
+         document.getElementById("sitetest").innerHTML = "OOF";
+       }
+     }
   </script>
 </body>
 </html>
