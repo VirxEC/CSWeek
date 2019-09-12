@@ -47,28 +47,29 @@
   <button id="roulettebruh">This is a test button! Put in an input value from 0-1000</button>
   <input id="input" type="number"><br>
   <button id="bonus">Get a bonus for 1 OwO</button>
-    <script>
+  <script>
+    window.onload = function() {
       var OwO = localStorge.getItem("OwO"), bonus = (localStorage.getItem("bonus") == 'true');
       if (OwO != null) {
         OwO = parseInt(OwO);
-        document.getElementById("OwO").textContent = `OwO (${OwO} times)`;
+        document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
       } else OwO = 0;
       var num = document.getElementById("input").value, timesBad = 0;
       document.getElementById("roulettebruh").addEventListener("click", function() {
         var rangen = Math.floor(Math.random() * 1001); // This must be Math.floor and not Math.Floor (+ for random) bc it won't work otherwise
         if(num == rangen || (bonus == true && (1000 - num) == rangen)){
           OwO++;
-          document.getElementById("OwO").textContent = `OwO (${OwO} times)`;
+          document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
         } else { // != is does not equal, /= is like +=. Also, == is one statement with only 1 other outcome, so you can just use else.
           timesBad++;
-          document.getElementById("UwU").textContent = `UwU (${timesBad} times)`;
+          document.getElementById("UwU").textContent = "UwU ("+timesBad+" times)";
         }
       });
       document.getElementById("bonus").addEventListener("click", function() {
         if (OwO >= 1 && bonus == false) {
           OwO--;
           if (timesGood == 0) document.getElementById("OwO").textContent = "";
-          else document.getElementById("OwO").textContent = `OwO (${OwO} times)`;
+          else document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
           bonus = true;
         } else if (bonus) alert("You already have this bonus!");
         else alert("Not enough OwO's!");
@@ -77,6 +78,7 @@
         localStorage.setItem("OwO", OwO);
         localStorage.setItem("bonus", bonus);
       }
+    }
   </script>
 </body>
 </html>
