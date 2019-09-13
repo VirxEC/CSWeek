@@ -20,7 +20,7 @@
   <p id="ratio"></p>
   <button id="roulettebruh">Put in an input value from 1-1000, then click me!</button>
   <input id="input" type="number" width="20px">
-  <span id="number"></span><br>
+  <span id="number">| </span><br>
   <button id="bonus">Get a bonus for 1 OwO</button>
   <br><br>
   <button id="reset">Reset everything</button>
@@ -52,11 +52,11 @@
     var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true');
     if (OwO != null) {
       OwO = parseInt(OwO);
-      if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
+      if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+")";
     } else OwO = 0;
     if (UwU != null) {
       UwU = parseInt(UwU);
-      if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
+      if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
     } else UwU = 0;
     
     document.getElementById("roulettebruh").addEventListener("click", function() {
@@ -72,7 +72,7 @@
           document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
         }
 
-        document.getElementById("ratio").textContent = "Luck: "+(OwO/UwU)*1000;
+        document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
 
         Number.prototype.between = function(a, b, inclusive) {
           var min = Math.min(a, b), max = Math.max(a, b);
