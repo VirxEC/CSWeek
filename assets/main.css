@@ -27,12 +27,6 @@ span.working {
   background-color: red;
   border: none; 
 }
-nav {
-  vertical-align: top;
-  border-collapse: collapse;
-  margin: 0px, 0px, 0px, 0px;
-  padding: 0px, 0px, 0px, 0px;
-}
 nav a {
   background-color: rgb(30, 30, 30); 
   color: white;
