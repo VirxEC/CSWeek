@@ -1,10 +1,12 @@
 var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true');
+
 if (OwO != null) {
   OwO = parseInt(OwO);
   if (OwO != 0) window.document.getElementById("OwO").textContent = "OwO ("+OwO+")";
 } else OwO = 0;
 if (UwU != null) {
   UwU = parseInt(UwU);
+  if (OwO != 0) window.document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
   if (UwU != 0) window.document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
 
@@ -14,10 +16,10 @@ window.document.getElementById("roulettebruh").addEventListener("click", functio
     if(num == rangen || (bonus == true && (1000 - num) == rangen)) {
       OwO++;
       alert("You got luckey!\n+1 OwO!\n+"+(((OwO/UwU)*1000)-(((OwO-1)/UwU)*1000)).toString()+" luck!");
-      window.document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
+      window.document.getElementById("OwO").textContent = "OwO ("+OwO+")";
     } else {
       UwU++;
-      window.document.getElementById("UwU").textContent = "UwU ("+UwU+" times)";
+      window.document.getElementById("UwU").textContent = "UwU ("+UwU+")";
     }
 
     window.document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
@@ -28,7 +30,7 @@ window.document.getElementById("roulettebruh").addEventListener("click", functio
     }
 
     var onum = window.document.getElementById("number");
-    onum.textContent = rangen;
+    onum.textContent = "| "+rangen;
     if (rangen.between(num-10, num+10, true)) onum.style.color = "rgb(0, 255, 0)";
     else if (rangen.between(num-100, num+100, true)) onum.style.color = "rgb(255, 255, 0)";
     else onum.style.color = "rgb(255, 0, 0)";
