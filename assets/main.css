@@ -1,7 +1,6 @@
 body { 
   color: white; 
   background-color: black; 
-  margin: 0;
 }
 button  {
   color: white;
@@ -28,6 +27,9 @@ span.working {
   background-color: red;
   border: none; 
 }
+nav {
+  margin: 0px, 0px, 0px, 0px;
+}
 nav a {
   background-color: rgb(30, 30, 30); 
   color: white; text-decoration: none;
@@ -48,4 +50,7 @@ nav a:link, nav a:visited {
 nav a:hover, nav a:active {
   background-color: rgb(60, 60, 60); 
   color: rgb(215, 215, 215); 
+}
+div#nomargin {
+  margin: 0px, 0px, 0px, 0px;
 }
