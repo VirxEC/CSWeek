@@ -11,11 +11,11 @@ if (UwU != null) {
 } else UwU = 0;
 
 window.document.getElementById("roulettebruh").addEventListener("click", function() {
-  var rangen = Math.floor(Math.random() * 1000) + 1, num = parseInt(window.document.getElementById("input").value);
+  var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(window.document.getElementById("input").value);
   if (num < 1001 && num > 0) {
     if(num == rangen || (bonus == true && (1000 - num) == rangen)) {
       OwO++;
-      alert("You got luckey!\n+1 OwO!\n+"+(((OwO/UwU)*1000)-(((OwO-1)/UwU)*1000)).toString()+" luck!");
+      alert("You got lucky!\n+1 OwO!\n+"+(((OwO/UwU)*1000)-(((OwO-1)/UwU)*1000)).toString()+" luck!");
       window.document.getElementById("OwO").textContent = "OwO ("+OwO+")";
     } else {
       UwU++;
