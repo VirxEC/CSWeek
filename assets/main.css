@@ -29,16 +29,19 @@ span.working {
 }
 nav {
   margin: 0px, 0px, 0px, 0px;
+  padding: 0px, 0px, 0px, 0px;
 }
 nav a {
   background-color: rgb(30, 30, 30); 
-  color: white; text-decoration: none;
+  color: white;
+  text-decoration: none;
   outline: none;
   padding: 10px 20px;
   display: block; 
   float: left;
   border-right: solid 1px rgb(75, 75, 75); 
-  border-bottom-left-radius: 5px; border-bottom-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px; 
   width: 16.666%;
   text-align: center; 
   box-sizing: border-box;
@@ -53,4 +56,5 @@ nav a:hover, nav a:active {
 }
 div#nomargin {
   margin: 0px, 0px, 0px, 0px;
+  padding: 0px, 0px, 0px, 0px;
 }
