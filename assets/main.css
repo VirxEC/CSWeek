@@ -51,5 +51,7 @@ nav a:hover, nav a:active {
   color: rgb(215, 215, 215); 
 }
 .nomargin {
-  margin: 0px 0px 0px 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
 }
