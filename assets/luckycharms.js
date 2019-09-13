@@ -31,8 +31,8 @@ window.document.getElementById("roulettebruh").addEventListener("click", functio
 
     var onum = window.document.getElementById("number");
     onum.textContent = "| "+rangen;
-    if (rangen.between(num-10, num+10, true) || (bonus == true && rangen.between(990-num, 1010-num, true)) onum.style.color = "rgb(0, 255, 0)";
-    else if (rangen.between(num-100, num+100, true) || (bonus == true && rangen.between(900-num, 1100-num, true)) onum.style.color = "rgb(255, 255, 0)";
+    if (rangen.between(num-10, num+10, true) || (bonus == true && rangen.between(990-num, 1010-num, true))) onum.style.color = "rgb(0, 255, 0)";
+    else if (rangen.between(num-100, num+100, true) || (bonus == true && rangen.between(900-num, 1100-num, true))) onum.style.color = "rgb(255, 255, 0)";
     else onum.style.color = "rgb(255, 0, 0)";
   } else alert("Make sure that the number is\nbetween 1 and 1001!");
 });
