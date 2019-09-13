@@ -57,8 +57,5 @@ nav a:hover, nav a:active {
   color: rgb(215, 215, 215); 
 }
 div#nomargin {
-  border-collapse: collapse;
-  vertical-align: top;
-  margin: 0px, 0px, 0px, 0px;
-  padding: 0px, 0px, 0px, 0px;
+  margin: -10px, -10px, -10px, -10px;
 }
