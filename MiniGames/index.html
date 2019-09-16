@@ -21,17 +21,15 @@
   <button id="consoleButton">Inject code</button>
   <script src="../assets/console.js"></script>
   <script>
-    var input = document.getElementById("consoleInput");
-    input.style.display = "none";
-    var button = document.getElementById("consoleButton");
-    button.style.display = "none";
+    document.getElementById("consoleInput").style.display = "none";
+    document.getElementById("consoleButton").style.display = "none";
     document.getElementById("consoleOutput").addEventListener("click", ()=> {
-      input.style.display = "block";
-      button.style.display = "block";
+      document.getElementById("consoleInput").style.display = "block";
+      document.getElementById("consoleButton").style.display = "block";
     });
-    button.addEventListener("click", () => {
-      eval(input.value);
-      console.log(eval(input.value));
+    document.getElementById("consoleButton").addEventListener("click", () => {
+      eval(document.getElementById("consoleInput").value);
+      console.log(eval(document.getElementById("consoleInput").value));
     });
   </script>
   <br>
