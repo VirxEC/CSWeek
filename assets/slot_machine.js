@@ -4,45 +4,69 @@ const REEL_RADIUS = 150;
 
 function createSlots (ringNum) {
     var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
-    console.log(seed);
-
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
 		var slot = document.createElement('div'), transform = `rotateX(${slotAngle*i}deg) translateZ(${REEL_RADIUS}px)`, num = (seed+i)%12;
 		slot.className = 'slot';
-		slot.id = ringNum+'_'+i;
 		slot.style.transform = transform;
-		var content = $(slot).append(`<p>${num}</p>`);
+		$(slot).append(`<p id="${ringNum}_${i}">${num}</p>`);
 		ring.append(slot);
 	}
 }
 
 function getSeed() {
-	return Math.floor(Math.random()*(SLOTS_PER_REEL));
+	return Math.floor(Math.random()*SLOTS_PER_REEL);
 }
 
 function spin(timer) {
-	for(var i = 1; i < 6; i ++) {
+	var maxTime;
+	for(var i=1;i<6;i++) {
 		var oldSeed = -1, oldClass = $('#ring'+i).attr('class'), seed = getSeed();
 		if(oldClass.length > 4) oldSeed = parseInt(oldClass.slice(10));
 		while(oldSeed == seed) seed = getSeed();
-        console.log(seed);
-		$('#ring'+i).css('animation',`back-spin 1s, spin-${seed} ${timer + i*0.5}s`).attr('class',`ring spin-${seed}`);
+		maxTime = timer+i*0.5;
+		$('#ring'+i).css('animation',`back-spin 1s, spin-${seed} ${maxTime}s`).attr('class',`ring spin-${seed}`);
 	}
+	setTimeout(() => {
+		var numbers = [], ring = [], current = null, cnt = 0;
+		for (var i=1;i<6;i++) ring[i-1] = parseInt($("#ring"+i).attr("class").split(" ")[1].split("-")[1]);
+		for (var i=0;i<5;i++) for (var j=0;j<12;j++) if (ring[i] == j) numbers[i] = $("#"+(i+1)+"_"+((j+4)%12)).text();
+
+		function check(cnt) {
+			if (cnt > 4) {
+				alert("CONGRATS!!!\nYou won the MEGA jackpot!!!\n+1,000 OwO's!!!");
+				OwO += 1000;
+				localStorage.setItem("OwO", OwO);
+				$("#OwO").text(`OwO (${OwO})`);
+			} else if (cnt > 2) {
+				alert("CONGRATS! You won the jackpot!\n+100 OwO's!");
+				OwO += 100;
+				localStorage.setItem("OwO", OwO);
+				$("#OwO").text(`OwO (${OwO})`);
+			}
+		}
+
+		numbers.sort();
+		for (var i = 0; i < numbers.length; i++) {
+			if (numbers[i] != current) {
+				check(cnt);
+				current = numbers[i], cnt = 1;
+			} else cnt++;
+		}
+		check(cnt);
+	}, (maxTime+1)*1000);
 }
 
 $(document).ready(function() {
 	for (var i = 1; i <= 5; i++) createSlots(i);
-    console.log("|");
  	$('.go').on('click',function(){
 		var OwO = localStorage.getItem("OwO");
 		if (OwO != null) {
 			OwO = parseInt(OwO);
 			if (OwO > 0) {
-				//OwO--;
+				OwO--;
 				localStorage.setItem("OwO", OwO);
 				$("#OwO").text(`OwO (${OwO})`);
-				var timer = 2;
-				spin(timer);
+				spin(10);
 			} else alert("Not enough OwO's!\n(Wins on Lucky Charms)");
 		}
  	})

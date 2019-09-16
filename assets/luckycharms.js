@@ -2,24 +2,26 @@ var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus 
 
 if (OwO != null) {
   OwO = parseInt(OwO);
-  if (OwO != 0) window.document.getElementById("OwO").textContent = "OwO ("+OwO+")";
+  if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+")";
 } else OwO = 0;
 if (UwU != null) {
   UwU = parseInt(UwU);
-  if (OwO != 0) window.document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
-  if (UwU != 0) window.document.getElementById("UwU").textContent = "UwU ("+UwU+")";
+  if (OwO != 0) document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
+  if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
 
-window.document.getElementById("roulettebruh").addEventListener("click", function() {
+document.getElementById("roulettebruh").addEventListener("click", function() {
   var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(window.document.getElementById("input").value);
   if (num < 1001 && num > 0) {
     if(num == rangen || (bonus == true && (1000 - num) == rangen)) {
       OwO++;
       alert("You got lucky!\n+1 OwO!\n+"+(((OwO/UwU)*1000)-(((OwO-1)/UwU)*1000)).toString()+" luck!");
-      window.document.getElementById("OwO").textContent = "OwO ("+OwO+")";
+      document.getElementById("OwO").textContent = "OwO ("+OwO+")";
+      localStorage.setItem("OwO", OwO);
     } else {
       UwU++;
-      window.document.getElementById("UwU").textContent = "UwU ("+UwU+")";
+      document.getElementById("UwU").textContent = "UwU ("+UwU+")";
+      localStorage.setItem("OwO", UwU);
     }
 
     window.document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
@@ -40,22 +42,18 @@ window.document.getElementById("roulettebruh").addEventListener("click", functio
 window.document.getElementById("bonus").addEventListener("click", function() {
   if (OwO >= 1 && bonus == false) {
     OwO--;
+    localStorage.setItem("OwO", OwO);
     if (OwO == 0) window.document.getElementById("OwO").textContent = "";
     else window.document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
     bonus = true;
+    localStorage.setItem("bonus", bonus);
   } else if (bonus) alert("You already have this bonus!");
   else alert("Not enough OwO's!");
 });
 
 window.document.getElementById("reset").addEventListener("click", function() {
-  OwO = 0;
-  UwU = 0;
-  bonus = false;
+  localStorage.setItem("OwO", 0);
+  localStorage.setItem("UwU", 0);
+  localStorage.setItem("bonus", false);
   window.location.reload();
-});
-
-window.addEventListener("beforeunload", function(){
-  localStorage.setItem("OwO", OwO.toString());
-  localStorage.setItem("UwU", UwU.toString());
-  localStorage.setItem("bonus", bonus.toString());
 });
