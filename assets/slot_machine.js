@@ -9,6 +9,7 @@ function createSlots (ringNum) {
 		var slot = document.createElement('div'), transform = `rotateX(${slotAngle*i}deg) translateZ(${REEL_RADIUS}px)`, num = (seed+i)%12;
 		slot.className = 'slot';
 		slot.id = ringNum+'_'+i;
+		console.log(slot.id);
 		slot.style.transform = transform;
 		var content = $(slot).append(`<p>${num}</p>`);
 		ring.append(slot);
