@@ -25,12 +25,14 @@ function spin(timer) {
 		var oldSeed = -1, oldClass = $('#ring'+i).attr('class'), seed = getSeed();
 		if(oldClass.length > 4) oldSeed = parseInt(oldClass.slice(10));
 		while(oldSeed == seed) seed = getSeed();
+        console.log(seed);
 		$('#ring'+i).css('animation',`back-spin 1s, spin-${seed} ${timer + i*0.5}s`).attr('class',`ring spin-${seed}`);
 	}
 }
 
 $(document).ready(function() {
 	for (var i = 1; i <= 5; i++) createSlots(i);
+    console.log("|");
  	$('.go').on('click',function(){
 		var OwO = localStorage.getItem("OwO");
 		if (OwO != null) {
