@@ -12,7 +12,7 @@ function createSlots (ringNum) {
 		var slot = document.createElement('div');
 		slot.className = 'slot';
 		slot.id = ringNum+'_'+i;
-		var transform = 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)';
+		var transform = `rotateX(${slotAngle*i}deg) translateZ(${REEL_RADIUS}px)`;
 		slot.style.transform = transform;
 		var num = (seed+i)%12;
 		var content = $(slot).append(`<p>${num}</p>`);
@@ -36,8 +36,8 @@ function spin(timer) {
 		}
 
 		$('#ring'+i)
-			.css('animation','back-spin 1s, spin-' + seed + ' ' + (timer + i*0.5) + 's')
-			.attr('class','ring spin-' + seed);
+			.css('animation',`back-spin 1s, spin-${seed} ${timer + i*0.5}s`)
+			.attr('class',`ring spin-${seed}`);
 	}
 }
 
