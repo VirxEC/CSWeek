@@ -3,16 +3,19 @@ const SLOTS_PER_REEL = 12;
 // current settings give a value of 149, rounded to 150
 const REEL_RADIUS = 150;
 
-function createSlots (ring) {
+function createSlots (ringNum) {
+	var ring = $('#ring'+ringNum);
 	var slotAngle = 360 / SLOTS_PER_REEL;
 	var seed = getSeed();
 
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
 		var slot = document.createElement('div');
 		slot.className = 'slot';
+		slot.id = ringNum+'_'+i;
 		var transform = 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)';
 		slot.style.transform = transform;
 		var content = $(slot).append('<p>' + ((seed + i)%12)+ '</p>');
+		console.log(seed, i);
 		ring.append(slot);
 	}
 }
@@ -38,17 +41,19 @@ function spin(timer) {
 }
 
 $(document).ready(function() {
- 	createSlots($('#ring1'));
- 	createSlots($('#ring2'));
- 	createSlots($('#ring3'));
- 	createSlots($('#ring4'));
- 	createSlots($('#ring5'));
+	for (var i = 1; i <= 5; i++) createSlots(i);
  	$('.go').on('click',function(){
-		if (parseInt(localStorage.getItem("OwO")) > 0) {
-			localStorage.setItem("OwO", OwO-1);
-			var timer = 2;
-			spin(timer);
-		} else alert("Not enough OwO's!\n(Wins on Lucky Charms)");
+		var OwO = localStorage.getItem("OwO");
+		if (OwO != null) {
+			OwO = parseInt(OwO);
+			if (OwO > 0) {
+				//OwO--;
+				localStorage.setItem("OwO", OwO);
+				$("#OwO").text(`OwO (${OwO})`);
+				var timer = 2;
+				spin(timer);
+			} else alert("Not enough OwO's!\n(Wins on Lucky Charms)");
+		}
  	})
 
  	$('#xray').on('click',function(){
