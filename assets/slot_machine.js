@@ -16,7 +16,7 @@ function createSlots (ringNum) {
 		slot.style.transform = transform;
 		var num = (seed+i)%12;
 		var content = $(slot).append(`<p>${num}</p>`);
-		console.log(`(${seed}, ${i}, ${num}`);
+		console.log(`(${seed}, ${i}, ${num})`);
 		ring.append(slot);
 	}
 }
