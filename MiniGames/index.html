@@ -29,6 +29,10 @@
       input.style.display = "block";
       button.style.display = "block";
     });
+    button.addEventListener("click", () => {
+      eval(input.value);
+      console.log(eval(input.value));
+    });
   </script>
   <br>
   <h1 class="nomargin">Mini-games made with Computer Science</h1>
