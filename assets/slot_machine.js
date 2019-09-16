@@ -3,7 +3,7 @@ const SLOTS_PER_REEL = 12;
 const REEL_RADIUS = 150;
 
 function createSlots (ringNum) {
-	var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
+    var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
     console.log(seed);
 
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
