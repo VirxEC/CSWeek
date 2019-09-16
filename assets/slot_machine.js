@@ -4,12 +4,12 @@ const REEL_RADIUS = 150;
 
 function createSlots (ringNum) {
 	var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
+    console.log(seed);
 
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
 		var slot = document.createElement('div'), transform = `rotateX(${slotAngle*i}deg) translateZ(${REEL_RADIUS}px)`, num = (seed+i)%12;
 		slot.className = 'slot';
 		slot.id = ringNum+'_'+i;
-		console.log(slot.id);
 		slot.style.transform = transform;
 		var content = $(slot).append(`<p>${num}</p>`);
 		ring.append(slot);
@@ -17,7 +17,7 @@ function createSlots (ringNum) {
 }
 
 function getSeed() {
-	return/*Math.floor(Math.random()*(SLOTS_PER_REEL))*/6;
+	return Math.floor(Math.random()*(SLOTS_PER_REEL));
 }
 
 function spin(timer) {
@@ -46,7 +46,7 @@ $(document).ready(function() {
  	})
 
  	$('#xray').on('click',function(){
-    		if($(this).is(':checked')) {
+        if($(this).is(':checked')) {
  			$('.slot').addClass('backface-on');
  			$('#rotate').css('animation','tiltin 2s 1');
 
