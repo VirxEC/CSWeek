@@ -17,7 +17,7 @@ function createSlots (ringNum) {
 }
 
 function getSeed() {
-	return Math.floor(Math.random()*(SLOTS_PER_REEL));
+	return/*Math.floor(Math.random()*(SLOTS_PER_REEL))*/6;
 }
 
 function spin(timer) {
