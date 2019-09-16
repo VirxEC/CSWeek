@@ -14,8 +14,9 @@ function createSlots (ringNum) {
 		slot.id = ringNum+'_'+i;
 		var transform = 'rotateX(' + (slotAngle * i) + 'deg) translateZ(' + REEL_RADIUS + 'px)';
 		slot.style.transform = transform;
-		var content = $(slot).append('<p>' + ((seed + i)%12)+ '</p>');
-		console.log(seed, i);
+		var num = (seed+i)%12;
+		var content = $(slot).append(`<p>${num}</p>`);
+		console.log(`(${seed}, ${i}, ${num}`);
 		ring.append(slot);
 	}
 }
