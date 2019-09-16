@@ -4,6 +4,8 @@
   <title>CSWeek</title>
   <link rel="icon" href="../logo.png">
   <link rel="stylesheet" href="../assets/main.css">
+  <link rel="stylesheet" href="../assets/slot_machine.css">
+  <script src="../assets/jquery-3.4.1.min.js"></script>
 </head>
 <body>
   <nav id="nav">
@@ -40,5 +42,29 @@
   <br><br>
   <button id="reset">Reset everything</button>
   <script src="../assets/luckycharms.js"></script>
+  <h2 class="nomargin">Slot Machine</h2>
+  <h4 class="nomargin">
+    <a href="../assets/slot_machine.js" download>Download source code</a>
+  </h4>
+  <div id="stage" class="perspective-on">
+    <div id="rotate">
+      <div id="ring1" class="ring"></div>
+      <div id="ring2" class="ring"></div>
+      <div id="ring3" class="ring"></div>
+      <div id="ring4" class="ring"></div>
+      <div id="ring5" class="ring"></div>
+    </div>
+    <div>
+      <button class="go">Start spinning</button>
+    </div>
+    <div>
+      <label>
+        <input type="checkbox" id="xray">Show inner workings
+      </label>
+      <label>
+        <input type="checkbox" id="perspective">Toggle perspective
+      </label>
+    </div>
+  </div>
 </body>
 </html>
