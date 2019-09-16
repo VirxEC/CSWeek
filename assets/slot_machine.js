@@ -45,7 +45,7 @@ $(document).ready(function() {
  	})
 
  	$('#xray').on('click',function(){
-    		if($(this).is(':checked')) {=
+    		if($(this).is(':checked')) {
  			$('.slot').addClass('backface-on');
  			$('#rotate').css('animation','tiltin 2s 1');
 
