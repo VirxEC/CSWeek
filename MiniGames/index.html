@@ -16,7 +16,7 @@
     <a class="nomargin" href="">Max 6</a>
     <a class="nomargin" href="/CalcPlus/SiteDiscord/">Contact Discord</a>
   </nav>
-  <p class="console"></p>
+  <p class="console" id="consoleOutput"></p>
   <input type="text" id="consoleInput">
   <button id="consoleButton">Inject code</button>
   <script src="../assets/console.js"></script>
@@ -25,7 +25,7 @@
     input.style.display = "none";
     var button = document.getElementById("consoleButton");
     button.style.display = "none";
-    document.getElementById("console").addEventListener("click", ()=> {
+    document.getElementById("consoleOutput").addEventListener("click", ()=> {
       input.style.display = "block";
       button.style.display = "block";
     });
