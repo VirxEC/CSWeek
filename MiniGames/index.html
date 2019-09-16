@@ -17,7 +17,19 @@
     <a class="nomargin" href="/CalcPlus/SiteDiscord/">Contact Discord</a>
   </nav>
   <p class="console"></p>
+  <input type="text" id="consoleInput">
+  <button id="consoleButton">Inject code</button>
   <script src="../assets/console.js"></script>
+  <script>
+    var input = document.getElementById("consoleInput");
+    input.style.display = "none";
+    var button = document.getElementById("consoleButton");
+    button.style.display = "none";
+    document.getElementById("console").addEventListener("click", ()=> {
+      input.style.display = "block";
+      button.style.display = "block";
+    });
+  </script>
   <br>
   <h1 class="nomargin">Mini-games made with Computer Science</h1>
   <h5 class="nomargin">© South Windsor High School CS Club</h5>
