@@ -58,11 +58,12 @@ function startClicker() {
 }
 
 document.getElementById("autoclicker").addEventListener("click", ()=>{
-  if (OwO >= 100) {
+  if (OwO > 99 && localStorage.getItem("autoclicker") != 'true') {
     OwO -= 100;
     localStorage.setItem("OwO", OwO);
     startClicker();
-  } else alert("Not enought OwO's!");
+  } else if (OwO < 100) alert("Not enought OwO's!");
+  else alert("You already have this bonus!");
 });
 
 document.getElementById("reset").addEventListener("click", ()=>{
