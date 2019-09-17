@@ -64,7 +64,7 @@ document.getElementById("bonus").addEventListener("click", ()=>{
   else alert("Not enough OwO's!");
 });
 
-var autoclick = document.getElementById("autoclicker")
+var autoclick = document.getElementById("autoclicker");
 if (localStorage.getItem("autoclicker") != 'true') {
   autoclick.addEventListener("click", ()=>{
     if (OwO > 99) {
@@ -102,6 +102,5 @@ window.addEventListener("beforeunload", ()=>{
   localStorage.setItem("OwO", OwO);
   localStorage.setItem("UwU", UwU);
   localStorage.setItem("bonus", bonus);
-  localStorage.setItem("autoclicker", autoclicker);
   localStorage.setItem("cps", cps);
 });
