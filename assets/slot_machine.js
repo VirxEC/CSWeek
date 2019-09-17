@@ -1,6 +1,6 @@
-const SLOTS_PER_REEL = 12;
-// radius = Math.round((panelWidth/2)/Math.tan(Math.PI/SLOTS_PER_REEL)); 
-const REEL_RADIUS = 150;
+const SLOTS_PER_REEL = 12, REEL_RADIUS = 150;
+// radius = Math.round((panelWidth/2)/Math.tan(Math.PI/SLOTS_PER_REEL));
+if (localStorage.getItem("autoclicker") == 'true') startClicker();
 
 function createSlots (ringNum) {
     var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
