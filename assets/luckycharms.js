@@ -8,7 +8,6 @@ if (UwU != null) {
   if (OwO != 0) document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
   if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
-if (localStorage.getItem("autoclicker") == 'true') startClicker();
 
 document.getElementById("roulettebruh").addEventListener("click", ()=>{
   var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(document.getElementById("input").value);
