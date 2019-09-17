@@ -2,7 +2,7 @@ const SLOTS_PER_REEL = 12, REEL_RADIUS = 150;
 // radius = Math.round((panelWidth/2)/Math.tan(Math.PI/SLOTS_PER_REEL));
 
 function createSlots (ringNum) {
-    var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
+	var ring = $('#ring'+ringNum), slotAngle = 360 / SLOTS_PER_REEL, seed = getSeed();
 	for (var i = 0; i < SLOTS_PER_REEL; i ++) {
 		var slot = document.createElement('div'), transform = `rotateX(${slotAngle*i}deg) translateZ(${REEL_RADIUS}px)`, num = (seed+i)%12;
 		slot.className = 'slot';
