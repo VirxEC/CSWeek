@@ -10,8 +10,8 @@ if (UwU != null) {
   if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
 
-document.getElementById("roulettebruh").addEventListener("click", function() {
-  var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(window.document.getElementById("input").value);
+document.getElementById("roulettebruh").addEventListener("click", ()=>{
+  var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(document.getElementById("input").value);
   if (num < 1001 && num > 0) {
     if(num == rangen || (bonus == true && (1000 - num) == rangen)) {
       OwO++;
@@ -24,14 +24,14 @@ document.getElementById("roulettebruh").addEventListener("click", function() {
       localStorage.setItem("OwO", UwU);
     }
 
-    window.document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
+    document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
 
     Number.prototype.between = function(a, b, inclusive) {
       var min = Math.min(a, b), max = Math.max(a, b);
       return inclusive ? this >= min && this <= max : this > min && this < max;
     }
 
-    var onum = window.document.getElementById("number");
+    var onum = document.getElementById("number");
     onum.textContent = "| "+rangen;
     if (rangen.between(num-10, num+10, true) || (bonus == true && rangen.between(990-num, 1010-num, true))) onum.style.color = "rgb(0, 255, 0)";
     else if (rangen.between(num-100, num+100, true) || (bonus == true && rangen.between(900-num, 1100-num, true))) onum.style.color = "rgb(255, 255, 0)";
@@ -39,21 +39,29 @@ document.getElementById("roulettebruh").addEventListener("click", function() {
   } else alert("Make sure that the number is\nbetween 1 and 1001!");
 });
 
-window.document.getElementById("bonus").addEventListener("click", function() {
+document.getElementById("bonus").addEventListener("click", ()=>{
   if (OwO >= 1 && bonus == false) {
     OwO--;
     localStorage.setItem("OwO", OwO);
-    if (OwO == 0) window.document.getElementById("OwO").textContent = "";
-    else window.document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
+    if (OwO == 0) document.getElementById("OwO").textContent = "";
+    else document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
     bonus = true;
     localStorage.setItem("bonus", bonus);
   } else if (bonus) alert("You already have this bonus!");
   else alert("Not enough OwO's!");
 });
 
-window.document.getElementById("reset").addEventListener("click", function() {
+document.getElementById("autoclicker").addEventListener("click", ()=>{
+  function click() {
+    document.getElementById("roulettebruh").click();
+    setTimeout(click(), 1000);
+  }
+  setTimeout(click(), 1000);
+});
+
+document.getElementById("reset").addEventListener("click", ()=>{
   localStorage.setItem("OwO", 0);
   localStorage.setItem("UwU", 0);
   localStorage.setItem("bonus", false);
-  window.location.reload();
+  location.reload();
 });
