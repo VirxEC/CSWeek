@@ -80,7 +80,7 @@ if (localStorage.getItem("autoclicker") != 'true') {
 function setClickPlus() {
   autoclick.id = "clickplus";
   autoclick.textContent = "Improve clicker by 1 CPS for 100 OwO's (1)";
-  document.getElementById("clickplus").addEventListener("click" ()=>{
+  document.getElementById("clickplus").addEventListener("click", ()=>{
     if (OwO > 99) {
       setValue("cps", cps+1);
       autoclick.textContent = `Improve clicker by 1 CPS for 100 OwO's (${cps})`;
