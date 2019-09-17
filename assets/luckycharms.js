@@ -94,5 +94,14 @@ document.getElementById("reset").addEventListener("click", ()=>{
   localStorage.setItem("UwU", 0);
   localStorage.setItem("bonus", false);
   localStorage.setItem("autoclicker", false);
+  localStorage.setItem("cps", 0);
   location.reload();
+});
+
+window.addEventListener("beforeunload", ()=>{
+  localStorage.setItem("OwO", OwO);
+  localStorage.setItem("UwU", UwU);
+  localStorage.setItem("bonus", bonus);
+  localStorage.setItem("autoclicker", autoclicker);
+  localStorage.setItem("cps", cps);
 });
