@@ -1,3 +1,9 @@
+function startClicker() {
+  setInterval(()=>{
+    document.getElementById("roulettebruh").click();
+  }, 1000);
+}
+
 var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true');
 if (OwO != null) {
   OwO = parseInt(OwO);
@@ -8,6 +14,7 @@ if (UwU != null) {
   if (OwO != 0) document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
   if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
+if (localStorage.getItem("autoclicker") == 'true') startClicker();
 
 document.getElementById("roulettebruh").addEventListener("click", ()=>{
   var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(document.getElementById("input").value);
@@ -49,12 +56,6 @@ document.getElementById("bonus").addEventListener("click", ()=>{
   } else if (bonus) alert("You already have this bonus!");
   else alert("Not enough OwO's!");
 });
-
-function startClicker() {
-  setInterval(()=>{
-    document.getElementById("roulettebruh").click();
-  }, 1000);
-}
 
 document.getElementById("autoclicker").addEventListener("click", ()=>{
   if (OwO > 99 && localStorage.getItem("autoclicker") != 'true') {
