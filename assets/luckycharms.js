@@ -52,11 +52,12 @@ document.getElementById("bonus").addEventListener("click", ()=>{
 });
 
 document.getElementById("autoclicker").addEventListener("click", ()=>{
-  function click() {
-    document.getElementById("roulettebruh").click();
-    setTimeout(click(), 1000);
-  }
-  setTimeout(click(), 1000);
+  if (OwO >= 100) {
+    OwO -= 100;
+    localStorage.setItem("OwO", OwO);
+    setInterval(()=>{
+      document.getElementById("roulettebruh").click();
+    }, 1000);
 });
 
 document.getElementById("reset").addEventListener("click", ()=>{
