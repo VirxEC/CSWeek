@@ -35,7 +35,7 @@ document.getElementById("roulettebruh").addEventListener("click", ()=>{
     if (rangen.between(num-10, num+10, true) || (bonus == true && rangen.between(990-num, 1010-num, true))) onum.style.color = "rgb(0, 255, 0)";
     else if (rangen.between(num-100, num+100, true) || (bonus == true && rangen.between(900-num, 1100-num, true))) onum.style.color = "rgb(255, 255, 0)";
     else onum.style.color = "rgb(255, 0, 0)";
-  } else alert("Make sure that the number is\nbetween 1 and 1001!");
+  }
 });
 
 document.getElementById("bonus").addEventListener("click", ()=>{
@@ -61,6 +61,7 @@ document.getElementById("autoclicker").addEventListener("click", ()=>{
   if (OwO > 99 && localStorage.getItem("autoclicker") != 'true') {
     OwO -= 100;
     localStorage.setItem("OwO", OwO);
+    localStorage.setItem("autoclicker", true);
     startClicker();
   } else if (OwO < 100) alert("Not enought OwO's!");
   else alert("You already have this bonus!");
