@@ -18,13 +18,11 @@ function getSeed() {
 }
 
 function spin(timer) {
-	var maxTime;
 	for(var i=1;i<6;i++) {
 		var oldSeed = -1, oldClass = $('#ring'+i).attr('class'), seed = getSeed();
 		if(oldClass.length > 4) oldSeed = parseInt(oldClass.slice(10));
 		while(oldSeed == seed) seed = getSeed();
-		maxTime = timer+i*0.5;
-		$('#ring'+i).css('animation',`back-spin 1s, spin-${seed} ${maxTime}s`).attr('class',`ring spin-${seed}`);
+		$('#ring'+i).css('animation',`back-spin 1s, spin-${seed} ${timer+i*0.5}s`).attr('class',`ring spin-${seed}`);
 	}
 	setTimeout(() => {
 		var numbers = [], ring = [], current = null, cnt = 0;
@@ -53,7 +51,7 @@ function spin(timer) {
 			} else cnt++;
 		}
 		check(cnt);
-	}, (maxTime+1)*1000);
+	}, ((timer+i*0.5)+1)*1000);
 }
 
 $(document).ready(function() {
