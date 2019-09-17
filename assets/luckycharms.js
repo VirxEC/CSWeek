@@ -60,6 +60,7 @@ function startClicker() {
 document.getElementById("autoclicker").addEventListener("click", ()=>{
   if (OwO > 99 && localStorage.getItem("autoclicker") != 'true') {
     OwO -= 100;
+    document.getElementById("OwO").textContent = `OwO (${OwO})`;
     localStorage.setItem("OwO", OwO);
     localStorage.setItem("autoclicker", true);
     startClicker();
