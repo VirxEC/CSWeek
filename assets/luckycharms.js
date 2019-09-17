@@ -21,7 +21,7 @@ document.getElementById("roulettebruh").addEventListener("click", ()=>{
     } else {
       UwU++;
       document.getElementById("UwU").textContent = "UwU ("+UwU+")";
-      localStorage.setItem("OwO", UwU);
+      localStorage.setItem("UwU", UwU);
     }
 
     document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
