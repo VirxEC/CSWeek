@@ -58,6 +58,7 @@ document.getElementById("autoclicker").addEventListener("click", ()=>{
     setInterval(()=>{
       document.getElementById("roulettebruh").click();
     }, 1000);
+  } else alert("Not enought OwO's!");
 });
 
 document.getElementById("reset").addEventListener("click", ()=>{
