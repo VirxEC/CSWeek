@@ -81,7 +81,7 @@ function setClickPlus() {
   autoclick.id = "clickplus";
   autoclick.textContent = `Improve autoclicker for 100 OwO's (${cps} of 10 cps)`;
   document.getElementById("clickplus").addEventListener("click", ()=>{
-    if (OwO > 99) {
+    if (OwO > 99 && cps < 11) {
       setValue("cps", cps+1);
       autoclick.textContent = `Improve autoclicker for 100 OwO's (${cps} of 10 cps)`;
     } else if (OwO < 100) alert("Not enough OwO's!");
