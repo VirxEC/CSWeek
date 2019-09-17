@@ -79,11 +79,11 @@ if (localStorage.getItem("autoclicker") != 'true') {
 
 function setClickPlus() {
   autoclick.id = "clickplus";
-  autoclick.textContent = "Improve clicker by 1 CPS for 100 OwO's (1)";
+  autoclick.textContent = "Improve autoclicker for 100 OwO's (1 of 10 cps)";
   document.getElementById("clickplus").addEventListener("click", ()=>{
     if (OwO > 99) {
       setValue("cps", cps+1);
-      autoclick.textContent = `Improve clicker by 1 CPS for 100 OwO's (${cps})`;
+      autoclick.textContent = `Improve autoclicker for 100 OwO's (${cps} of 10 cps)`;
     } else if (OwO < 100) alert("Not enough OwO's!");
     else alert("You already maxed this bonus!\n(You have a 10 cps autoclicker)");
   });
