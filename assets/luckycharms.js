@@ -1,5 +1,4 @@
 var OwO = localStorage.getItem("OwO"), UwU = localStorage.getItem("UwU"), bonus = (localStorage.getItem("bonus") == 'true');
-
 if (OwO != null) {
   OwO = parseInt(OwO);
   if (OwO != 0) document.getElementById("OwO").textContent = "OwO ("+OwO+")";
@@ -9,6 +8,7 @@ if (UwU != null) {
   if (OwO != 0) document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
   if (UwU != 0) document.getElementById("UwU").textContent = "UwU ("+UwU+")";
 } else UwU = 0;
+if (localStorage.getItem("autoclicker") == 'true') startClicker();
 
 document.getElementById("roulettebruh").addEventListener("click", ()=>{
   var rangen = Math.floor(Math.random()*1000)+1, num = parseInt(document.getElementById("input").value);
@@ -25,7 +25,6 @@ document.getElementById("roulettebruh").addEventListener("click", ()=>{
     }
 
     document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
-
     Number.prototype.between = function(a, b, inclusive) {
       var min = Math.min(a, b), max = Math.max(a, b);
       return inclusive ? this >= min && this <= max : this > min && this < max;
@@ -43,6 +42,7 @@ document.getElementById("bonus").addEventListener("click", ()=>{
   if (OwO >= 1 && bonus == false) {
     OwO--;
     localStorage.setItem("OwO", OwO);
+    localStorage.setItem("autoclicker", true);
     if (OwO == 0) document.getElementById("OwO").textContent = "";
     else document.getElementById("OwO").textContent = "OwO ("+OwO+" times)";
     bonus = true;
@@ -51,13 +51,17 @@ document.getElementById("bonus").addEventListener("click", ()=>{
   else alert("Not enough OwO's!");
 });
 
+function startClicker() {
+  setInterval(()=>{
+    document.getElementById("roulettebruh").click();
+  }, 1000);
+}
+
 document.getElementById("autoclicker").addEventListener("click", ()=>{
   if (OwO >= 100) {
     OwO -= 100;
     localStorage.setItem("OwO", OwO);
-    setInterval(()=>{
-      document.getElementById("roulettebruh").click();
-    }, 1000);
+    startClicker();
   } else alert("Not enought OwO's!");
 });
 
@@ -65,5 +69,6 @@ document.getElementById("reset").addEventListener("click", ()=>{
   localStorage.setItem("OwO", 0);
   localStorage.setItem("UwU", 0);
   localStorage.setItem("bonus", false);
+  localStorage.setItem("autoclicker", false);
   location.reload();
 });
