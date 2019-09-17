@@ -90,11 +90,11 @@ function setClickPlus() {
 }
                                                         
 document.getElementById("reset").addEventListener("click", ()=>{
-  localStorage.setItem("OwO", 0);
-  localStorage.setItem("UwU", 0);
-  localStorage.setItem("bonus", false);
-  localStorage.setItem("autoclicker", false);
-  localStorage.setItem("cps", 0);
+  setValue("OwO", 0);
+  setValue("UwU", 0);
+  setValue("bonus", false);
+  setValue("autoclicker", false);
+  setValue("cps", 0);
   location.reload();
 });
 
