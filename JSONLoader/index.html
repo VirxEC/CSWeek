@@ -12,10 +12,10 @@
           $.each(response.Users, function(item) {
             data.push(item);
           });
-          data.push("success");
+          console.log("success");
         }
       });
-      document.getElementById("output").textContent = data;
+      console.info(data);
     </script>
     <!-- Load from user file<script>        
       function handleFileSelect() {               
