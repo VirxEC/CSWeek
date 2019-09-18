@@ -1,4 +1,4 @@
-var bonus = localStorage.getItem("bonus") == 'true';
+var OwO, UwU, cps, bonus = localStorage.getItem("bonus") == 'true';
 
 function setValue(id, value, returnV = false) {
   localStorage.setItem(id, value.toString());
@@ -6,7 +6,7 @@ function setValue(id, value, returnV = false) {
   else eval(id+"="+value+";");
 }
 function setUpValue(value) {
-  eval(`var ${value}=localStorage.getItem("${value}");`);
+  eval(`${value}=localStorage.getItem("${value}");`);
   eval(`${value}=${value}!=null ? +${value}:setValue("${value}", 0, true);`);
 }
 function startClicker() {
