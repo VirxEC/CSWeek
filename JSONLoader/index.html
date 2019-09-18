@@ -2,7 +2,22 @@
 <html>
   <head>
     <title>JSON Loader TEST!</title>
-    <script>        
+    <script src="../assets/jquery-3.4.1.min.js"></script>
+    <script>
+      var data=[];
+      $.ajax({
+        url: "../users/test/game1.json",
+        dataType: "json",
+        success: function(response) {
+          $.each(response.Users, function(item) {
+            data.push(item);
+          });
+          data.push("success");
+        }
+      });
+      document.getElementById("body").textContent=data;
+    </script>
+    <!-- Load from user file<script>        
       function handleFileSelect() {               
         if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
             alert('The File APIs are not fully supported in this browser.');
@@ -27,12 +42,12 @@
       function receivedText() {           
         //result = fr.result;
         document.getElementById('editor').appendChild(document.createTextNode(fr.result))
-      }       
+      }-->  
     </script>
   </head>
   <body>
-    <input type="file" id="fileinput"/>
+    <!-- Load from local file<input type="file" id="fileinput"/>
     <input type='button' id='btnLoad' value='Load' onclick='handleFileSelect();'>
-    <div id="editor"></div>
+    <div id="editor"></div> -->
   </body>
 </html>
