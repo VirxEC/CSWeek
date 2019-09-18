@@ -15,7 +15,7 @@
           data.push("success");
         }
       });
-      document.write(data);
+      document.getElementById("output").textContent = data;
     </script>
     <!-- Load from user file<script>        
       function handleFileSelect() {               
@@ -49,5 +49,6 @@
     <!-- Load from local file<input type="file" id="fileinput"/>
     <input type='button' id='btnLoad' value='Load' onclick='handleFileSelect();'>
     <div id="editor"></div> -->
+    <p id="output"></div>
   </body>
 </html>
