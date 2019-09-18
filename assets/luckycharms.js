@@ -1,16 +1,16 @@
 var OwO, UwU, cps, bonus = localStorage.getItem("bonus") == 'true';
 
-function setValue(id, value, returnV = false) {
-  localStorage.setItem(id, value.toString());
-  if (returnV) return value;
-  else eval(id+"="+value+";");
-}
 function setUpValue(value) {
   eval(`${value}=localStorage.getItem("${value}");`);
   eval(`${value}=${value}!=null ? +${value}:setValue("${value}", 0, true);`);
 }
 function startClicker() {
   setInterval(()=>document.getElementById("roulettebruh").click(), 1000/cps);
+}
+function setValue(id, value, returnV = false) {
+  localStorage.setItem(id, value.toString());
+  if (returnV) return value;
+  else eval(id+"="+value+";");
 }
 function setOwO(value) {
   setValue("OwO", value);
