@@ -3,6 +3,12 @@
 <head>
   <title>JSON Loader TEST!</title>
   <script src="../assets/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+  <p id="output"></p>
+  <input id="data">
+  <input type="email" id="email">
+  <button id="savebtn">Save data</button>
   <script>
     var gamedata;
     $.getJSON("../users/test/game1.json", function(json) {
@@ -23,11 +29,5 @@
       });
     });
   </script>
-</head>
-<body>
-  <p id="output"></p>
-  <input id="data">
-  <input type="email" id="email">
-  <button id="savebtn">Save data</button>
 </body>
 </html>
