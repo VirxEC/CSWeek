@@ -4,11 +4,11 @@
   <title>JSON Loader TEST!</title>
   <script src="../assets/jquery-3.4.1.min.js">
     var gamedata;
-    $.getJSON("../users/test/game1.json", json => {
+    $.getJSON("../users/test/game1.json", function(json) {
       gamedata = json;
-      document.getElementById("output").textContent = gamedata.data+" "+gamedata.email;
+      document.getElementById("output").textContent = json.data+" "+json.email;
     });
-    $("#savebtn").on("click", () => {
+    $("#savebtn").on("click", function() {
       gamedata.data = $("#data").text();
       gamedata.email = $("#email").text();
       $.ajax({
@@ -17,8 +17,8 @@
         async: false,
         url: '../users/test/game1.json',
         data: { data: JSON.stringify(gamedata) },
-        success: () => alert("Thanks!");,
-        failure: () => alert("Error!");
+        success: function() {alert("Thanks!");},
+        failure: function() {alert("Error!")};
       });
     });
   </script>
