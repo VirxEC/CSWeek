@@ -13,7 +13,8 @@ function setValue(id, value, returnV = false) {
   else eval(id+"="+value+";");
 }
 function setOwO(value) {
-  setValue("OwO", value);
+  localStorage.setItem("OwO", value);
+  OwO = value;
   document.getElementById("OwO").textContent = OwO == 0 ? "" : `OwO (${OwO})`;
   document.getElementById("ratio").textContent = "| Luck: "+(OwO/UwU)*1000;
 }
