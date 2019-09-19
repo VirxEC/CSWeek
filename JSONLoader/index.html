@@ -4,18 +4,9 @@
     <title>JSON Loader TEST!</title>
     <script src="../assets/jquery-3.4.1.min.js"></script>
     <script>
-      var data=[];
-      $.ajax({
-        url: "../users/test/game1.json",
-        dataType: "json",
-        success: function(response) {
-          $.each(response.Users, function(item) {
-            data.push(item);
-          });
-          console.log("success");
-        }
+      $.getJSON("../users/test/game1.json", function(json) {
+        console.log(json); 
       });
-      console.info(data);
     </script>
     <!-- Load from user file<script>        
       function handleFileSelect() {               
@@ -42,8 +33,8 @@
       function receivedText() {           
         //result = fr.result;
         document.getElementById('editor').appendChild(document.createTextNode(fr.result))
-      }-->  
-    </script>
+      }
+    </script> -->
   </head>
   <body>
     <!-- Load from local file<input type="file" id="fileinput"/>
